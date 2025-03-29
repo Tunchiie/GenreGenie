@@ -1,5 +1,8 @@
 # Movie Genre Prediction - Machine Learning Project
 
+## Problem Statement
+Given a dataset of movie metadata and overviews, the goal is to develop a model that can accurately assign multiple genres to each movie. Since movies can belong to more than one genre (e.g., Action + Thriller), this problem is inherently a multi-label classification task. The model should generalize well across both common and rare genres while providing insights into misclassification patterns and trends.
+
 ## Background
 The rapid expansion of digital media platforms has generated vast volumes of movie-related data. Understanding and predicting genres from textual and metadata sources can enhance user experience, support recommendation systems, and improve media cataloging. Accurate genre prediction also plays a key role in recommendation engines, targeted advertising, and content-based filtering used by platforms such as Netflix, Amazon Prime, and Disney+.
 
@@ -10,6 +13,12 @@ Key components of the pipeline include:
 •	Feature extraction using TF-IDF Vectorization
 •	Model training using OneVsRestClassifier and MultiOutputClassifier with Logistic Regression
 •	Evaluation using precision, recall, F1-score, and visual performance metrics (confusion matrix, heatmap, precision-recall curve)
+
+## Tech Stack
+- **Languages**: Python, SQL
+- **Libraries**: scikit-learn, pandas, NumPy, matplotlib, seaborn
+- **Techniques**: TF-IDF, OneVsRest, MultiOutput Classification, Logistic Regression
+- **Tools**: Jupyter Notebook, Git, GitHub
 
 ## Executive Summary
 
@@ -50,6 +59,14 @@ The dataset, based on The Movie Database (TMDb), included:
 -	Converted genre column into binary multi-hot encoding
 -	Applied TF-IDF vectorizer to the cleaned overview text (max_features = 5000)
 -	Split the dataset into training and testing sets (80/20 split)
+
+## Evaluation Metrics
+| Metric       | Score |
+|--------------|-------|
+| Precision    | 0.62  |
+| Recall       | 0.49  |
+| F1 Score     | 0.54  |
+
 
 ## Insights
 
@@ -119,11 +136,36 @@ The vote distribution skews toward the 6–8 range, indicating a general trend o
 -	Content Discovery Tools: Build a front-end app for discovering movies by predicted genre.
 -	Search Engine Optimization (SEO): Auto-tag movies based on predicted genres to enhance discoverability.
 
+## How to Run
+1. Clone the repo
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run `genre_prediction.ipynb` to explore the data and reproduce results
+
+> Python version: 3.10+
+
 ## Caveats and Assumptions
 -	Genre classification is inherently subjective and overlapping.
 -	The model relies solely on the overview, which may be too short or vague for nuanced genre detection.
 -	Genre imbalance leads to poorer performance on rare classes (e.g., Fantasy, Music).
 -	Precision-recall metrics were averaged; genre-specific scores may vary considerably.
+
+## Future Work
+
+- Short-Term Goals:
+
+  - Improve precision and recall for underrepresented genres
+
+  - Implement genre-specific classification thresholds
+
+  - Tune model hyperparameters using grid search or Bayesian optimization
+
+- Long-Term Enhancements:
+
+  - Deploy model in a live prediction tool using Streamlit or Flask
+
+  - Extend the dataset with multilingual movie overviews
+
+  - Integrate with TMDb API for real-time predictions
 
 ## Additional Enhancements
 -	Genre Co-occurrence Network: Visualize which genres frequently occur together to improve understanding of multi-label patterns.
