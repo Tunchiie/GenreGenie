@@ -16,12 +16,27 @@ Key components of the pipeline include:
 ![THIS IMAGE](https://github.com/Tunchiie/Machine-Learning/blob/5282d13dca29c8bc952b10972301e09a0db59f97/Precision%20recall%20curve%20for%20genre%20prediction.PNG)
 Figure 1: Precision-Recall Curve illustrating the balance between genre detection accuracy and coverage.
 
--	Goal: Predict movie genres using metadata and textual description (overview)
--	Tools: Python, scikit-learn, pandas, NumPy, matplotlib, seaborn
--	Modeling Techniques: TF-IDF, Logistic Regression, OneVsRest, MultiOutput Classification
--	Outcome: Achieved a macro-averaged precision of 0.62 and recall of 0.49
--	Insights: Genre misclassifications occurred mostly between similar genres such as Action vs. Adventure
--	Impact: Foundation for genre-aware recommendation engines and classification tools
+- Goal: Predict movie genres using metadata and textual description (overview) to support intelligent content recommendations and genre tagging automation.
+
+- Tools: Python, scikit-learn, pandas, NumPy, matplotlib, seaborn for data preprocessing, feature extraction, modeling, and visualization.
+
+- Modeling Techniques: TF-IDF Vectorization for transforming textual overviews, OneVsRest and MultiOutput classifiers for multilabel learning, and Logistic Regression for interpretability and performance balance.
+
+- Outcome: Achieved a macro-averaged precision of 0.62 and recall of 0.49, indicating decent predictive power for popular genres, with room for improvement in low-frequency classes.
+
+- Insights:
+
+  - The model struggled most with genre pairs that frequently co-occur, such as Action & Adventure, or Drama & Romance, indicating genre ambiguity in narrative structures.
+
+  - Underrepresented genres like War, Music, and Western had the lowest recall, driven by limited training data.
+
+  - Over-prediction of dominant genres (e.g., Drama) often led to decreased precision in nuanced categories.
+
+  - Temporal analysis revealed rising trends in Action and Drama releases post-2020, aligning with global streaming adoption.
+
+  - Vote distribution showed most movies are moderately liked (6–8 average rating), but some high-quality low-popularity "hidden gems" exist in niche genres.
+
+- Impact: The framework provides a foundation for scalable genre tagging and enhances user experience in streaming services and recommendation systems.
 
 ## Data Structure and Initial Checks
 The dataset, based on The Movie Database (TMDb), included:
@@ -29,7 +44,7 @@ The dataset, based on The Movie Database (TMDb), included:
 -	overview: Short description (used for NLP)
 -	genres: Multi-label genre field
 -	vote_average: Average user rating
--	release_date: Release year (extracted from timestamp)
+-	release_date: Release year (extracted from timestamp) among other features
 ### Initial Processing Steps:
 -	Handled nulls in overview and genres
 -	Converted genre column into binary multi-hot encoding
