@@ -1,7 +1,8 @@
 # Movie Genre Prediction - Machine Learning Project
 
 ## Background and Overview
-The exponential growth of movie-related data driven by the expansion of digital media platforms has opened new opportunities to enhance user experience and recommendation systems, improving cataloging in various ways. Accurate genre prediction significantly affects the recommendation, targeted advertising, and content-based filtering used by Netflix, Disney+, and Amazon Prime, among multiple platforms. This project focuses on multi-label text classification using Natural Language Processing (NLP) techniques and supervised machine learning models. Since Movies can have a touch specific to multiple genres simultaneously, the final model must be able to handle multi-label outputs efficiently.
+The exponential growth of movie-related data driven by the expansion of digital media platforms has opened new opportunities to enhance user experience and recommendation systems, improving cataloging in various ways. Moreover, among multiple platforms, accurate genre prediction significantly affects the recommendation, targeted advertising, and content-based filtering used by Netflix, Disney+, and Amazon Prime. Therefore, this project focuses on multi-label text classification using Natural Language Processing (NLP) techniques and supervised machine learning models.
+Given that movies often mix genres, the model handles multi-label outputs with efficiency and precision.
 
 Key components of the pipeline include:
 •	Preprocessing and cleaning of data obtained from TMDb
@@ -15,11 +16,11 @@ The processed dataset, based on The Movie Database (TMDb), included:
 -	Overview: Short description (used for NLP)
 -	Genres: Multi-label genre field
 -	Vote_average: Average user rating
--	Popularity: A metric based on views, votes, and people who've seen and liked or look forward to seeing the movie.
+-	Popularity: A metric based on views, votes, and audience sentiment.
 -	Release_date: Release year (extracted from timestamp), among other features
 ### Initial Processing Steps:
 -	Handled nulls in overview and genres
--	Converted genre IDs into genre and finally into binary multi-hot encoding
+-	Converted genre IDs into descriptive genres and subsequently into binary multi-hot encoding
 -	Applied TF-IDF vectorizer to the overview text
 -	Split the dataset into training and testing sets (80/20 split)
 
@@ -28,28 +29,7 @@ The processed dataset, based on The Movie Database (TMDb), included:
 ![THIS IMAGE](https://github.com/Tunchiie/Machine-Learning/blob/5282d13dca29c8bc952b10972301e09a0db59f97/Precision%20recall%20curve%20for%20genre%20prediction.PNG)
 Figure 1: Precision-Recall Curve illustrating the balance between genre detection accuracy and coverage.
 
-- Goal: Predict movie genres using metadata and textual description (overview) to support informed content recommendations and genre tagging automation.
-
-- Tools: Python, scikit-learn, pandas, NumPy, matplotlib, seaborn, feature extraction, modeling, and visualization.
-
-- Modeling Techniques: TF-IDF Vectorization for transforming textual overviews, OneVsRest and MultiOutput classifiers for multi-label learning, and Logistic Regression for interpretability and performance balance.
-
-- Outcome: Achieved a macro-averaged precision of 0.62 and recall of 0.49, indicating decent predictive power for popular genres, with room for improvement in infrequent genres.
-
-- Insights:
-
-  - The model struggled most with genre pairs that frequently co-occur, such as Action & Adventure or Drama & Romance, indicating genre ambiguity in overview structure.
-
-  - Underrepresented genres like War, Music, and Western had the lowest recall, driven by limited training data.
-
-  - Over-prediction of dominant genres (e.g., Drama) often led to decreased precision in nuanced categories.
-
-  - Temporal analysis revealed rising trends in Action and Drama releases post-2020, aligning with global streaming adoption and the need for thrill and suspense.
-
-  Vote distribution showed that most movies are moderately liked (6–8 average rating), but some high-quality, low-popularity "hidden gems" exist in niche genres.
-
-- Impact: The framework provides a foundation for scalable genre tagging and enhances user experience in streaming services and recommendation systems.
-
+While tme model showed promise, it faced challenges distinguishing between overlapping genres like Action and Adventure or Drama and Romance, shedding light on the ambiguity often present in movie descriptions.The data imbalance significantly impacted its ability to predict underrepresented genres, with dominant categories like Drama overshadowing others.
 
 ## Evaluation Metrics
 | Metric       | Score |
@@ -67,7 +47,7 @@ Figure 1: Precision-Recall Curve illustrating the balance between genre detectio
 
 Figure 2: Misclassification heatmap showing genre overlaps and confusion intensity.
 
-The misclassification heatmap highlights genre overlap in genres like Action and Adventure that frequently co-occur and are often confused by the model due to shared overview structure (e.g., fast-paced sequences, heroic plots). This misclassification suggests the need for genre-aware contextual modeling. In addition, due to data imbalance, low-support genres such as Music or War are misclassified.
+The misclassification heatmap highlights genre overlap in genres like Action and Adventure that frequently co-occur and are often confused by the model due to shared overview structure (e.g., fast-paced sequences, heroic plots). This suggests a need for genre-aware contextual modeling. In addition, due to data imbalance, low-support genres such as Music or War are often misclassified.
 
 #### Confusion Matrix
 
@@ -75,7 +55,7 @@ The misclassification heatmap highlights genre overlap in genres like Action and
  
 Figure 3: Confusion matrix illustrating correct and incorrect predictions for each genre.
 
-The confusion matrix provides a genre-targeted breakdown of true positives, false positives, and false negatives. For instance, the model correctly identifies 'Drama' but often mistakes 'Romance' for 'Drama,' suggesting overlapping emotional tones and overview structures. It also struggles with underrepresented genres such as 'Documentary,' often defaulting to more frequent genres.
+The model correctly identifies 'Drama' but often mistakes 'Romance' for 'Drama,' suggesting overlapping emotional tones and overview structures. It also struggles with underrepresented genres such as 'Documentary,' often defaulting to more frequent genres.
 
 #### Genre Popularity Trends
 
@@ -94,7 +74,7 @@ Figure 5a: Top 5 genres by movie count.
 
 Figure 5b: Most popular genres by aggregated popularity score.
 
-Regarding frequency and popularity, Action, Drama, and Thriller dominate the dataset. However, while Action movies are more numerous, Drama tends to receive higher vote averages, indicating stronger audience appreciation and reflecting a high saturation of drama films in the dataset. This pattern suggests a potential bias toward high-volume genres that may not align with audience preference.
+Regarding frequency and popularity, Action, Drama, and Thriller are prominent in the dataset. However, while Action movies are numerous, Drama tends to receive higher vote averages, indicating stronger audience appreciation and reflecting a high saturation of drama films in the dataset. This pattern suggests a potential bias toward high-volume genres that may not align with audience preference.
 
 #### Hidden Gems by Genre
 
@@ -102,7 +82,7 @@ Regarding frequency and popularity, Action, Drama, and Thriller dominate the dat
 
 Figure 6: High-rated but less popular movies across genres.
 
-Hidden gems are identified by filtering movies with high average ratings but low popularity scores. These are often independent or foreign-language films overlooked due to limited distribution and subtitle aversion. Genres like Drama and Romance harbor the highest concentration of these films, suggesting untapped potential for recommendation systems.
+Hidden gems are often independent or foreign-language films overlooked due to limited distribution and subtitle aversion. Genres like Drama and Romance harbor the highest concentration of these films, suggesting untapped potential for recommendation systems.
 
 
 #### Vote Distribution
