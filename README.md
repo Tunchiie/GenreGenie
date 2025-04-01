@@ -4,10 +4,10 @@
 The exponential growth of movie-related data driven by the expansion of digital media platforms has opened new opportunities to enhance user experience and recommendation systems, improving cataloging in various ways. Moreover, among multiple platforms, accurate genre prediction significantly affects the recommendation, targeted advertising, and content-based filtering used by Netflix, Disney+, and Amazon Prime. Therefore, this project focuses on multi-label text classification using Natural Language Processing (NLP) techniques and supervised machine learning models. Since movies often mix genres, the model handles multi-label outputs efficiently and precisely.
 
 Key components of the pipeline include:
-•	Preprocessing and cleaning of data obtained from TMDb
-•	Feature extraction using TF-IDF Vectorization
-•	Model training using OneVsRestClassifier and MultiOutputClassifier with Logistic Regression
-•	Evaluation using precision, recall, F1-score, and visual performance metrics (confusion matrix, heatmap, precision-recall curve)
+-	Preprocessing and cleaning of data obtained from TMDb
+-	Feature extraction using TF-IDF Vectorization
+-	Model training using OneVsRestClassifier and MultiOutputClassifier with Logistic Regression
+-	Evaluation using precision, recall, F1-score, and visual performance metrics (confusion matrix, heatmap, precision-recall curve)
 
 ## Data Structure and Initial Checks
 The processed dataset, based on The Movie Database (TMDb), included:
