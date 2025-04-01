@@ -11,12 +11,12 @@ Key components of the pipeline include:
 
 ## Data Structure and Initial Checks
 The processed dataset, based on The Movie Database (TMDb), included:
--	title: Title of the movie
--	overview: Short description (used for NLP)
--	genres: Multi-label genre field
--	vote_average: Average user rating
--	popularity: A metric based on views, votes, and people who've seen and liked or look forward to seeing the movie.
--	release_date: Release year (extracted from timestamp), among other features
+-	Title: Title of the movie
+-	Overview: Short description (used for NLP)
+-	Genres: Multi-label genre field
+-	Vote_average: Average user rating
+-	Popularity: A metric based on views, votes, and people who've seen and liked or look forward to seeing the movie.
+-	Release_date: Release year (extracted from timestamp), among other features
 ### Initial Processing Steps:
 -	Handled nulls in overview and genres
 -	Converted genre IDs into genre and finally into binary multi-hot encoding
