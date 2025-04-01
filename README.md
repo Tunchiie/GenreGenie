@@ -1,8 +1,7 @@
 # Movie Genre Prediction - Machine Learning Project
 
 ## Background and Overview
-The exponential growth of movie-related data driven by the expansion of digital media platforms has opened new opportunities to enhance user experience and recommendation systems, improving cataloging in various ways. Moreover, among multiple platforms, accurate genre prediction significantly affects the recommendation, targeted advertising, and content-based filtering used by Netflix, Disney+, and Amazon Prime. Therefore, this project focuses on multi-label text classification using Natural Language Processing (NLP) techniques and supervised machine learning models.
-Given that movies often mix genres, the model handles multi-label outputs with efficiency and precision.
+The exponential growth of movie-related data driven by the expansion of digital media platforms has opened new opportunities to enhance user experience and recommendation systems, improving cataloging in various ways. Moreover, among multiple platforms, accurate genre prediction significantly affects the recommendation, targeted advertising, and content-based filtering used by Netflix, Disney+, and Amazon Prime. Therefore, this project focuses on multi-label text classification using Natural Language Processing (NLP) techniques and supervised machine learning models. Since movies often mix genres, the model handles multi-label outputs efficiently and precisely.
 
 Key components of the pipeline include:
 •	Preprocessing and cleaning of data obtained from TMDb
@@ -29,7 +28,7 @@ The processed dataset, based on The Movie Database (TMDb), included:
 ![THIS IMAGE](https://github.com/Tunchiie/Machine-Learning/blob/5282d13dca29c8bc952b10972301e09a0db59f97/Precision%20recall%20curve%20for%20genre%20prediction.PNG)
 Figure 1: Precision-Recall Curve illustrating the balance between genre detection accuracy and coverage.
 
-While tme model showed promise, it faced challenges distinguishing between overlapping genres like Action and Adventure or Drama and Romance, shedding light on the ambiguity often present in movie descriptions.The data imbalance significantly impacted its ability to predict underrepresented genres, with dominant categories like Drama overshadowing others.
+While the model showed promise, it faced challenges distinguishing between overlapping genres like Action and Adventure or Drama and Romance, shedding light on the ambiguity often present in movie descriptions. The data imbalance significantly impacted its ability to predict underrepresented genres, with dominant categories like Drama overshadowing others.
 
 ## Evaluation Metrics
 | Metric       | Score |
